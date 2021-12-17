@@ -81,7 +81,7 @@ PolylabelResult polylabel(
 }
 
 /// Get polygon centroid
-Cell _getCentroidCell(Polygon polygon) {
+Cell _getCentroidCell(List<List<Point>> polygon) {
   num area = 0;
   num x = 0;
   num y = 0;
