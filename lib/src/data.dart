@@ -1,7 +1,5 @@
 import 'dart:math' show min, sqrt, sqrt2, Point;
 
-typedef Polygon = List<List<Point>>;
-
 class PolylabelResult {
   final Point point;
   final num distance;
@@ -18,13 +16,13 @@ class Cell {
   final num d; // distance from cell center to polygon
   late num max; // max distance to polygon within a cell
 
-  Cell(this.c, this.h, Polygon polygon) : d = pointToPolygonDist(c, polygon) {
+  Cell(this.c, this.h, List<List<Point>> polygon) : d = pointToPolygonDist(c, polygon) {
     max = d + h * sqrt2;
   }
 }
 
 /// Signed distance from point to polygon outline (negative if point is outside)
-num pointToPolygonDist(Point point, Polygon polygon) {
+num pointToPolygonDist(Point point, List<List<Point>> polygon) {
   bool inside = false;
   num minDistSq = double.infinity;
 
